@@ -93,24 +93,40 @@ int main() {
 
                         for (int i = 0; i < 3; i++) {
                             if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != '-') {
-                                printf("congratulations Player %c win\n", new1);// row win
+                                            if (new1[0] == 'X') {
+                                    printf("Congratulations %s, you win!\n", player1); // row win
+                                } else {
+                                    printf("Congratulations %s, you win!\n", player2);
+                                }
                                 exit = 1;
                                 break;
                             }
                             if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != '-') {
-                                printf("congratulations Player %c win\n", new1);// column win
+                                           if (new1[0] == 'X') {
+                    printf("Congratulations %s, you win!\n", player1); // column win
+                } else {
+                    printf("Congratulations %s, you win!\n", player2);
+                }
                                 exit = 1;
                                 break;
                             }
                         }
 
                         if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != '-') {
-                            printf("congratulations Player %c wins\n", new1);//diagonal 1 win
+                                        if (new1[0] == 'X') {
+                    printf("Congratulations %s, you win!\n", player1); // digonla1 win
+                } else {
+                    printf("Congratulations %s, you win!\n", player2);
+                }
                             exit = 1;
                             break;
                         }
                         if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != '-') {
-                            printf("congratulations Player %c win\n", new1);// diagonal 2 win
+                                        if (new1[0] == 'X') {
+                    printf("Congratulations %s, you win!\n", player1); // digonla2 win
+                } else {
+                    printf("Congratulations %s, you win!\n", player2);
+                }
                             exit = 1;
                             break;
                         }
@@ -134,11 +150,9 @@ int main() {
                             break;
                         }
 
-                        if (new1[0] == new1[0]) {// swap players
-                            new1[0] = new1[1];
-                        } else {
-                            new1[0] = new1[0];
-                        }
+                        char temp = new1[0];
+                        new1[0] = new1[1];
+                            new1[1] = temp;
                     }
                     break;
                 case 'H':            // Display game rules
